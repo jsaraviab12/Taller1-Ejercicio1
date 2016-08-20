@@ -18,6 +18,9 @@ public class Ejercicio1I extends javax.swing.JFrame {
      */
     public Ejercicio1I() {
         initComponents();
+        txtPorcentaje1.setEditable(false); 
+        txtPorcentaje2.setEditable(false);
+        txtPorcentaje3.setEditable(false); 
     }
 
     /**
@@ -71,7 +74,19 @@ public class Ejercicio1I extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtValor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 60, -1));
+
+        txtValor2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValor2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 60, -1));
+
+        txtValor3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValor3KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 60, -1));
         jPanel1.add(txtPorcentaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 60, -1));
         jPanel1.add(txtPorcentaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 60, -1));
@@ -122,7 +137,7 @@ public class Ejercicio1I extends javax.swing.JFrame {
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
        String res1,res2,res3;
         double n1,n2,n3,suma,porc1=0,porc2=0,porc3=0;
-        if (txtValor1.getText().trim().isEmpty()){
+        if (txtValor1.getText().trim().isEmpty() ){
             JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona numerp 1","Erro", JOptionPane.ERROR_MESSAGE);
             txtValor1.requestFocusInWindow();
         }else if (txtValor2.getText().trim().isEmpty()){
@@ -133,23 +148,29 @@ public class Ejercicio1I extends javax.swing.JFrame {
             txtValor3.requestFocusInWindow();
         }
         else {
+           try {
            n1 = Double.parseDouble(txtValor1.getText());
-     n2 = Double.parseDouble(txtValor2.getText());
-     n3= Double.parseDouble(txtValor3.getText());
-     suma= n1+n2+n3;
-     porc1=(n1*100)/suma;
-     porc2=(n2*100)/suma;
-     porc3=(n3*100)/suma;
+           n2 = Double.parseDouble(txtValor2.getText());
+           n3= Double.parseDouble(txtValor3.getText());
+           suma= n1+n2+n3;
+           porc1=(n1*100)/suma;
+           porc2=(n2*100)/suma;
+           porc3=(n3*100)/suma;}
+           catch (Exception e){
+              JOptionPane.showMessageDialog(this,"Ingrese numero validos","Erro", JOptionPane.ERROR_MESSAGE);
+            txtValor1.requestFocusInWindow();
+           } 
+           
         }
-        res1 = String.valueOf(porc1);
-        res2 = String.valueOf(porc2);
-        res3 = String.valueOf(porc3);
+        res1 = String.valueOf(Math.round(porc1));
+        res2 = String.valueOf(Math.round(porc2));
+        res3 = String.valueOf(Math.round(porc3));
         txtPorcentaje1.setText(res1+"%");
         txtPorcentaje2.setText(res2+"%");
         txtPorcentaje3.setText(res3+"%");
         txtPorcentaje1.setEditable(false); 
-txtPorcentaje2.setEnabled(false);
-txtPorcentaje3.setEnabled(false);
+        txtPorcentaje2.setEditable(false);
+        txtPorcentaje3.setEditable(false);
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
@@ -172,6 +193,28 @@ txtPorcentaje3.setEnabled(false);
               evt.consume(); 
           }
     }//GEN-LAST:event_txtValor1KeyTyped
+
+    private void txtValor2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValor2KeyTyped
+      char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtValor2KeyTyped
+
+    private void txtValor3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValor3KeyTyped
+        char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtValor3KeyTyped
 
     /**
      * @param args the command line arguments
