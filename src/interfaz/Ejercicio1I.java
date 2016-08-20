@@ -64,6 +64,12 @@ public class Ejercicio1I extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
         jLabel4.setText("Persona 3");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        txtValor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValor1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 60, -1));
         jPanel1.add(txtValor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 60, -1));
         jPanel1.add(txtValor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 60, -1));
@@ -141,7 +147,9 @@ public class Ejercicio1I extends javax.swing.JFrame {
         txtPorcentaje1.setText(res1+"%");
         txtPorcentaje2.setText(res2+"%");
         txtPorcentaje3.setText(res3+"%");
-        
+        txtPorcentaje1.setEditable(false); 
+txtPorcentaje2.setEnabled(false);
+txtPorcentaje3.setEnabled(false);
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
@@ -153,6 +161,17 @@ public class Ejercicio1I extends javax.swing.JFrame {
         txtPorcentaje3.setText("");
         txtValor1.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtValor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValor1KeyTyped
+         char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtValor1KeyTyped
 
     /**
      * @param args the command line arguments
