@@ -109,9 +109,34 @@ public class Ejercicio1I extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+       String res1,res2,res3;
+        double n1,n2,n3,suma,porc1=0,porc2=0,porc3=0;
         if (txtValor1.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona 1","Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona numerp 1","Erro", JOptionPane.ERROR_MESSAGE);
+            txtValor1.requestFocusInWindow();
+        }else if (txtValor2.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona numero 2","Error",JOptionPane.ERROR_MESSAGE);
+            txtValor2.requestFocusInWindow();
+        }else if (txtValor3.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona numero 3","Error",JOptionPane.ERROR_MESSAGE);
+            txtValor3.requestFocusInWindow();
         }
+        else {
+           n1 = Double.parseDouble(txtValor1.getText());
+     n2 = Double.parseDouble(txtValor2.getText());
+     n3= Double.parseDouble(txtValor3.getText());
+     suma= n1+n2+n3;
+     porc1=(n1*100)/suma;
+     porc2=(n2*100)/suma;
+     porc3=(n3*100)/suma;
+        }
+        res1 = String.valueOf(porc1);
+        res2 = String.valueOf(porc2);
+        res3 = String.valueOf(porc3);
+        txtPorcentaje1.setText(res1+"%");
+        txtPorcentaje2.setText(res2+"%");
+        txtPorcentaje3.setText(res3+"%");
+        
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
