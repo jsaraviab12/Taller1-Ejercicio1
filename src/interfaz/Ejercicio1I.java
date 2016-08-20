@@ -20,7 +20,7 @@ public class Ejercicio1I extends javax.swing.JFrame {
         initComponents();
         txtPorcentaje1.setEditable(false); 
         txtPorcentaje2.setEditable(false);
-        txtPorcentaje3.setEditable(false); 
+        txtPorcentaje3.setEditable(false) ;   
     }
 
     /**
