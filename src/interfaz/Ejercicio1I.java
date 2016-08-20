@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus
@@ -72,6 +74,11 @@ public class Ejercicio1I extends javax.swing.JFrame {
         cmdCalcular.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
         cmdCalcular.setForeground(new java.awt.Color(0, 153, 51));
         cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 90, 30));
 
         cmdBorrar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
@@ -100,6 +107,12 @@ public class Ejercicio1I extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        if (txtValor1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Digite el valor invertido por la persona 1","Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
