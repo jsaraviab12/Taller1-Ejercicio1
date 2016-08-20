@@ -84,6 +84,11 @@ public class Ejercicio1I extends javax.swing.JFrame {
         cmdBorrar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
         cmdBorrar.setForeground(new java.awt.Color(153, 0, 0));
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 70, 20));
 
         jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
@@ -138,6 +143,16 @@ public class Ejercicio1I extends javax.swing.JFrame {
         txtPorcentaje3.setText(res3+"%");
         
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtValor1.setText("");
+        txtValor2.setText("");
+        txtValor3.setText("");
+        txtPorcentaje1.setText("");
+        txtPorcentaje2.setText("");
+        txtPorcentaje3.setText("");
+        txtValor1.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
